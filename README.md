@@ -73,11 +73,5 @@ DB_USER: user
 DB_PASSWORD: userpass
 DB_NAME: sportsdb
 
-🧩 Future Improvements
-
-- Add real sports API for live updates
-- Add login/signup system
-- Deploy to cloud with Docker Swarm or Kubernetes
-
 📄 License
 This project is for educational purposes only.
