@@ -1,95 +1,83 @@
-🚀 Multi-Service Web Application with Docker & Docker Compose
-This project demonstrates a simple multi-service web application using Docker and Docker Compose. It consists of:
 
-🌐 A static Frontend (HTML + JavaScript)
+🏆 Sports Hub – Multi-Service Web Application (Dockerized)
 
-🐍 A Python Flask Backend API
+This is a Dockerized sports web application with:
+- A Frontend (HTML, CSS, JavaScript) served by Nginx
+- A Backend API built with Flask (Python)
+- A MySQL Database storing sports scores
 
-🐬 A MySQL Database
+📦 Project Structure
 
-All services run inside isolated Docker containers.
-
-📁 Project Structure
-perl
-Copy
-Edit
-my-multi-service-app/
+sports-hub/
+├── frontend/
+│   ├── index.html
+│   ├── style.css
+│   ├── app.js
+│   └── Dockerfile
 ├── backend/
 │   ├── app.py
 │   ├── requirements.txt
 │   └── Dockerfile
-├── frontend/
-│   ├── index.html
-│   └── Dockerfile
 ├── docker-compose.yml
 └── README.md
-⚙️ Technologies Used
-Docker
 
-Docker Compose
+🚀 Technologies Used
+- Frontend: HTML, CSS, JavaScript, Nginx
+- Backend: Python Flask API
+- Database: MySQL 5.7
+- Containerization: Docker & Docker Compose
 
-Python Flask
+🛠 How to Run the Project
 
-MySQL
+1️⃣ Clone the Repository:
+git clone https://github.com/your-username/sports-hub.git
+cd sports-hub
 
-Nginx (for frontend static file serving)
-
-🚀 How to Run the Project
-1️⃣ Prerequisites
-Docker installed and running
-
-Docker Compose installed
-
-2️⃣ Clone the Repository
-bash
-Copy
-Edit
-git clone https://github.com/yourusername/my-multi-service-app.git
-cd my-multi-service-app
-3️⃣ Build and Run All Containers
-bash
-Copy
-Edit
+2️⃣ Build and Run Containers:
 docker-compose up --build
-✅ Frontend: http://localhost:8080
-✅ Backend API: http://localhost:5000/api/hello
-✅ MySQL Database: Running on port 3306 (internal use)
 
-📝 Services Overview
-Service	Port	Description
-Frontend	8080	Serves static HTML + calls the backend
-Backend	5000	Python Flask API + connects to database
-Database	3306	MySQL with persistent volume
+Frontend: http://localhost:8080
+Backend API: http://localhost:5000/api/scores
+MySQL: localhost:3306
 
-📡 Environment Variables
-The backend service uses the following environment variables:
+🛢 Database Setup (Initial Load)
 
-Variable	Value	Description
-DB_HOST	db	Docker service name
-DB_USER	user	MySQL username
-DB_PASSWORD	userpass	MySQL password
-DB_NAME	mydb	MySQL database name
+1. Access MySQL inside the container:
+docker exec -it sports-hub_db_1 mysql -u user -p
+(password: userpass)
 
-💾 Persistent Storage
-MySQL uses a Docker volume (db_data) to persist data across container restarts.
+2. Create the table and sample data:
+USE sportsdb;
 
-🔗 Sample API Response
-json
-Copy
-Edit
-{
-  "message": "Hello from Database!"
-}
-📦 Stopping the Containers
-bash
-Copy
-Edit
-docker-compose down
-🌟 Future Improvements
-Add user input and store/retrieve from database
+CREATE TABLE scores (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  match_name VARCHAR(255),
+  score VARCHAR(50),
+  status VARCHAR(50)
+);
 
-Implement authentication
+INSERT INTO scores (match_name, score, status) VALUES
+('Team A vs Team B', '2 - 1', 'Full Time'),
+('Team C vs Team D', '1 - 3', 'Half Time');
 
-Add reverse proxy (NGINX) for unified port access
+🌐 Features
 
-Deploy to Docker Hub or cloud platforms
+- Live Scores: Pulled dynamically from Flask + MySQL
+- Responsive Design: Looks good on mobile & desktop
+- Microservices Architecture: Each service runs independently in its own container
+
+📝 Environment Variables
+
+DB_HOST: db
+DB_USER: user
+DB_PASSWORD: userpass
+DB_NAME: sportsdb
+
+🧩 Future Improvements
+
+- Add real sports API for live updates
+- Add login/signup system
+- Deploy to cloud with Docker Swarm or Kubernetes
+
+📄 License
+This project is for educational purposes only.
