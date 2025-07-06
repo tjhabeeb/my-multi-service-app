@@ -1,18 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Frontend</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>🏆 Sports Hub - Live Scores & News</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Frontend Page</h1>
-  <div id="message"></div>
+  <header>
+    <div class="logo">🏆 Sports Hub</div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Teams</a></li>
+        <li><a href="#">Fixtures</a></li>
+        <li><a href="#">News</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <script>
-    fetch('http://localhost:5000/api/hello')
-      .then(response => response.json())
-      .then(data => {
-        document.getElementById('message').innerText = data.message;
-      });
-  </script>
+  <section class="hero">
+    <h1>Welcome to the Ultimate Sports Experience</h1>
+    <p>Stay updated with live scores, team updates, and breaking sports news.</p>
+  </section>
+
+  <section class="scores-section">
+    <h2>⚽ Live Scores</h2>
+    <div class="scores-grid" id="scores"></div>
+  </section>
+
+  <section class="news-section">
+    <h2>📰 Latest News</h2>
+    <div class="news-grid">
+      <div class="news-card">
+        <h3>Team A Wins the Championship</h3>
+        <p>In a thrilling match, Team A clinched the title with a last-minute goal...</p>
+      </div>
+      <div class="news-card">
+        <h3>Injury Update: Star Player Out</h3>
+        <p>Team B’s top striker will miss the next game due to a hamstring injury...</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Sports Hub. All rights reserved.</p>
+  </footer>
+
+  <script src="app.js"></script>
 </body>
 </html>

@@ -44,7 +44,7 @@ Docker Compose installed
 bash
 Copy
 Edit
-git clone https://github.com/yourusername/my-multi-service-app.git
+git clone https://github.com/tjhabeeb/my-multi-service-app.git
 cd my-multi-service-app
 3️⃣ Build and Run All Containers
 bash

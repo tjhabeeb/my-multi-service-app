@@ -4,23 +4,22 @@ import os
 
 app = Flask(__name__)
 
-# Database configuration from environment variables
 db_config = {
     'host': os.environ.get('DB_HOST', 'db'),
     'user': os.environ.get('DB_USER', 'user'),
     'password': os.environ.get('DB_PASSWORD', 'userpass'),
-    'database': os.environ.get('DB_NAME', 'mydb')
+    'database': os.environ.get('DB_NAME', 'sportsdb')
 }
 
-@app.route('/api/hello')
-def hello():
+@app.route('/api/scores')
+def get_scores():
     try:
         conn = mysql.connector.connect(**db_config)
-        cursor = conn.cursor()
-        cursor.execute("SELECT 'Hello from Database!'")
-        result = cursor.fetchone()
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute("SELECT match_name, score, status FROM scores")
+        results = cursor.fetchall()
         conn.close()
-        return jsonify(message=result[0])
+        return jsonify(results)
     except Exception as e:
         return jsonify(error=str(e))
 
