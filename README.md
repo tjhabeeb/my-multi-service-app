@@ -30,7 +30,7 @@ sports-hub/
 🛠 How to Run the Project
 
 1️⃣ Clone the Repository:
-git clone https://github.com/your-username/sports-hub.git
+git clone https://github.com/tjhabeeb/sports-hub-dockerized.git
 cd sports-hub
 
 2️⃣ Build and Run Containers:
