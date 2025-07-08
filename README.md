@@ -44,7 +44,6 @@ MySQL: localhost:3306
 
 1. Access MySQL inside the container:
 docker exec -it sports-hub_db_1 mysql -u user -p
-(password: userpass)
 
 2. Create the table and sample data:
 USE sportsdb;
@@ -65,13 +64,6 @@ INSERT INTO scores (match_name, score, status) VALUES
 - Live Scores: Pulled dynamically from Flask + MySQL
 - Responsive Design: Looks good on mobile & desktop
 - Microservices Architecture: Each service runs independently in its own container
-
-📝 Environment Variables
-
-DB_HOST: db
-DB_USER: user
-DB_PASSWORD: userpass
-DB_NAME: sportsdb
 
 📄 License
 This project is for educational purposes only.
