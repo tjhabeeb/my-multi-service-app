@@ -31,7 +31,7 @@ sports-hub/
 
 1️⃣ Clone the Repository:
 git clone https://github.com/tjhabeeb/sports-hub-dockerized.git
-cd sports-hub
+cd sports-hub-dockerized
 
 2️⃣ Build and Run Containers:
 docker-compose up --build
